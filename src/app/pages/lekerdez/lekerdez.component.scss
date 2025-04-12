@@ -1,0 +1,12 @@
+.main{
+    display: flex;
+    flex-direction: column-reverse;//legyen friss elöl
+    gap: 10px;
+}
+.card{
+    width: 500px;
+    margin: auto;
+}
+h1{
+    text-align: center;
+}

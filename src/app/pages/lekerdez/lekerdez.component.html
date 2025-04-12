@@ -1,1 +1,14 @@
-<p>lekerdez works!</p>
+<h1>Korábbi bediktálások</h1>
+<div class="main">
+
+    @for(card of cards; track card.datum){
+        <app-diktalas [card]="card"></app-diktalas>
+    }<!--
+    <div class="card">
+        <span>időpont2020</span>
+        <span>óraszám</span>
+        <span>óra állás kwh</span>
+    </div>
+    -->
+
+</div>
