@@ -1,0 +1,21 @@
+<nav>
+
+    <a mat-fab extended routerLink="/home">Főoldal</a>
+
+    <div class="sub-div">
+        @if (isLogedIN) { <!--nincs belépve-->
+         <a mat-fab extended routerLink="/bedikt">Bediktálás</a>
+         <a mat-fab extended routerLink="/lekerdez">Diktálásaim</a>
+         <a mat-fab extended (click)="logout()" >Kilépés</a>
+        }
+        @if (!isLogedIN) { <!--nincs belépve-->
+            <a mat-fab extended routerLink="/login">Bejelentkezés<br>Regisztráció</a> 
+        }
+    </div>
+    <!--legyen már  a login gomb egy kisfickós kép :)-->
+</nav>
+<div class="banner">
+    <p class="banner-text">
+        Felvillanyozzuk mindennapjait! *ha fizet persze... (e-Off)
+    </p>
+</div>

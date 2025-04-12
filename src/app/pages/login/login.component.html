@@ -1,0 +1,56 @@
+<div class="loginBox">
+    
+  
+  <mat-form-field>
+    <mat-label>Email cím</mat-label>
+    <input
+      matInput
+      placeholder="pat@example.com"
+      [formControl]="email"
+      (blur)="updateErrorMessage()"
+      required
+    />
+    <mat-icon matSuffix>email</mat-icon>
+    @if (email.invalid) {
+      <mat-error>{{errorMessage()}}</mat-error>
+    }
+  </mat-form-field>
+  
+
+  <mat-form-field>
+    <mat-label>Jelszó</mat-label>
+    <input matInput [type]="hide() ? 'password' : 'text'"
+    [formControl]="passw" />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="clickEvent($event)"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide()"
+    >
+      <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <button (click)="login()" id="submitBtn" type="submit" mat-raised-button>Bejelentkezés</button>
+
+<!--
+      <mat-form-field>
+        <mat-label>Jelszó megerősítés</mat-label>
+        <input matInput [type]="hide() ? 'password' : 'text'"
+        [formControl]="passw2" />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="clickEvent($event)"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide()"
+        >
+          <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      
+
+      <mat-icon>perm_identity</mat-icon>
+-->
+</div>

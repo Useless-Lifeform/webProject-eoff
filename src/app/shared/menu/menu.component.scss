@@ -1,0 +1,22 @@
+nav{
+    //min-height: 100px;
+    padding: 10px;
+    background-color: cornflowerblue;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+a{
+    border-radius: 8px;
+}
+.banner{
+    // Debug color!
+    background-color: aqua;
+    // !!!
+
+}
+.sub-div{
+    display: flex;
+    width: 20%;
+    justify-content: space-evenly;
+}
