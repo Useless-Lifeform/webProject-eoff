@@ -9,3 +9,60 @@
     padding-right: 20px;
     height: 80.6%;
 }
+   .greenBTN{//te meg menj a francba
+    background-color: rgba(0, 128, 0, 0.644);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.greenBTN:hover{
+    background-color: rgba(0, 128, 0, 0.644);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+#submitBtn{
+    background-color: rgba(38, 110, 245, 0.644);
+    color: white;
+    border: none;
+    //padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    //margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+#submitBtn:hover{
+    background-color: rgb(77, 138, 252);
+    color: white;
+    border: none;
+    //padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    //margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+
+}

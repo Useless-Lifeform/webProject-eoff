@@ -1,0 +1,80 @@
+<div class="regist-container">
+    <h1>Regisztráció</h1>
+
+    @if(isLoading){
+        <div class="loading-container">
+            <h2>Regisztráció folyamatban!</h2>
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            <p>Légy türelmes!</p>
+          </div>
+    }
+
+    @if(showForm){
+        <div class="regForm">
+            <form [formGroup]="registForm" (ngSubmit)="regist()" >
+                <mat-form-field> <!--Email mező-->
+                    <mat-label>Email cím</mat-label>
+                    <input
+                      matInput
+                      placeholder="minta@example.com"
+                      formControlName="email"
+                      (blur)="updateErrorMessage()"
+                      required
+                    />
+                    <mat-icon matSuffix>email</mat-icon>
+                    <mat-error *ngIf="registForm.get('email')?.hasError('required') && registForm.get('email')?.touched">Email cím megadása kötelező!</mat-error>
+                    <mat-error *ngIf="registForm.get('email')?.hasError('email') && registForm.get('email')?.touched">Hibás email cím!</mat-error>
+                </mat-form-field>
+
+                <mat-form-field> <!--jelszó 1. mező-->
+                    <mat-label>Jelszó</mat-label>
+                    <input matInput [type]="hide() ? 'password' : 'text'"
+                    formControlName="passw" />
+                    <button
+                      mat-icon-button
+                      matSuffix
+                      (click)="showHidePassw($event)"
+                      [attr.aria-label]="'Hide password'"
+                      [attr.aria-pressed]="hide()"
+                    >
+                      <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    @if (registForm.get('passw')?.invalid && registForm.get('passw')?.touched) {
+                        <mat-error>Password must be at least 6 characters long</mat-error>
+                      }
+                  </mat-form-field>
+
+                  <mat-form-field> <!--jelszó 2. mező-->
+                    <mat-label>Jelszó megerősítése</mat-label> 
+                    <input matInput [type]="hide() ? 'password' : 'text'"
+                    formControlName="passw2" />
+                    <button
+                      mat-icon-button
+                      matSuffix
+                      (click)="showHidePassw($event)"
+                      [attr.aria-label]="'Hide password'"
+                      [attr.aria-pressed]="hide()"
+                    >
+                      <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                  </mat-form-field>
+
+                  <mat-form-field> <!--kNév mező-->
+                    <mat-label>Kereszt név</mat-label>
+                    <input matInput formControlName="kNev" placeholder="Artyom" required />
+                  </mat-form-field>
+
+                  @if (registError) {
+                    <div class="error-message">
+                      {{ registError }}
+                    </div>
+                  }
+
+                  <!--Regist Gomb-->
+                    <button mat-raised-button color="primary" type="submit">Regisztráció</button>
+            </form>
+        </div>
+    }
+
+
+</div>

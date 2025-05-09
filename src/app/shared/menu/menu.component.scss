@@ -20,3 +20,58 @@ a{
     width: 20%;
     justify-content: space-evenly;
 }
+
+
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to right, #007BFF, #0056b3); // kék árnyalatok
+    color: white;
+    padding: 1rem 2rem;
+    border-bottom: 4px solid #003d80;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+    .logo {
+      display: flex;
+      align-items: center;
+  
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        margin-right: 0.5rem;
+      }
+  
+      .logo-text {
+        font-size: 1.8rem;
+        font-weight: bold;
+        font-family: 'Segoe UI', sans-serif;
+      }
+    }
+  
+    .slogan {
+      font-size: 1.1rem;
+      font-style: italic;
+  
+      .small {
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+    }
+  
+    @media (max-width: 600px) {
+      flex-direction: column;
+      text-align: center;
+  
+      .logo {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+  
+  
+  .eoff-logo {
+    height: 50px;
+    width: auto;
+  }
+  

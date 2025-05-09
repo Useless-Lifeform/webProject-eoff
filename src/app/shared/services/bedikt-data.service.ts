@@ -21,4 +21,12 @@ export class BediktDataService {
     getCards():  BediktCard[]  {
         return this.fakeData;
     }
+    //TODO:   mérőórák lekérdezése, by userID
+    //        új mérőóra hozzáadása
+    //        (mérőóra törlése, mérés törlése)
+    //        mérések lekérdezése  by mérőóraID
+    //        új mérés hozzáadása
+
+
+    
 }

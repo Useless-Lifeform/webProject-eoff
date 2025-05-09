@@ -1,24 +1,92 @@
-<div >
-    <form class="bediktBox">
-        <mat-form-field appearance="outline">
-            <mat-label>Ön azonosítója</mat-label>
-            <input matInput type="text" placeholder="12345AB">
-        </mat-form-field>
-    
-        <mat-form-field appearance="outline">
-            <mat-label>Mérőóra száma</mat-label>
-            <input matInput type="text" placeholder="1234-1234-ABC">
-        </mat-form-field>
-        
-        <mat-form-field appearance="outline">
-            <mat-label>Mérőóra állása</mat-label>
-            <input matInput type="number">
-            <span matTextSuffix>&nbsp; kWh</span>
-        </mat-form-field>
+<div class="master">
+<!--
+    <span class="chooser">
+        <span>Mérőállás bediktálása</span> <mat-slide-toggle [(ngModel)]="isChecked" /> <span> Új MérőÓra hozzáadása</span>
+    </span>
 
-        <button id="submitBtn" type="submit" mat-stroked-button>Rögzítés</button>
+
+    <mat-divider></mat-divider>
+
+    <form  class="bediktBox" id="bediktForm">
+
+ 
+
+    <h4>Válassz mérőórát</h4>
+<mat-form-field appearance="outline">
+  <mat-label>Mérőóráid</mat-label>
+  <mat-select [(ngModel)]="selectedValue" name="meter">
+    @for (serial of meters; track serial) {
+      <mat-option [value]="serial">{{ serial }}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
+
+<p> Kiválasztott mérőóra: {{ selectedValue }} </p>
+
+
+
+    <mat-form-field appearance="outline">
+        <mat-label>Mérőóra állása</mat-label>
+        <input matInput type="number">
+        <span matTextSuffix>&nbsp; kWh</span>
+    </mat-form-field>
+
+        <button id="submitBtn" type="submit" mat-raised-button>Rögzítés</button>
     </form>
 
+    <form class="bediktBox" id="ujMeroForm" (ngSubmit)="addMero()">
+        <mat-form-field appearance="outline">
+            <mat-label>Új mérőóra hozzáadása</mat-label>
+            <input matInput [(ngModel)]="ujMeroValue" name="ujMeroValue" type="text" placeholder="ABCD123" required>
+        </mat-form-field>
+        <button id="submitBtn" type="submit" mat-raised-button>Hozzáadás</button>
+    </form>
+
+  -->
+<!--[formControl]="ujMero"-->
+
+
+
+
+
+<!-- Slide toggle -->
+<span class="chooser">
+  <span>Mérőállás bediktálása</span>
+  <mat-slide-toggle [(ngModel)]="isChecked"> </mat-slide-toggle>
+  <span> Új MérőÓra hozzáadása</span>
+</span>
+
+<mat-divider></mat-divider>
+
+<!-- Ha isChecked = false, akkor a bedikt form látszik -->
+<form *ngIf="!isChecked" class="bediktBox" id="bediktForm" (ngSubmit)="bediktalas()">
+  <h4>Válassz mérőórát</h4>
+  <mat-form-field appearance="outline">
+    <mat-label>Mérőóráid</mat-label>
+    <mat-select [(ngModel)]="selectedValue" name="meter" [disabled]="meters.length === 0">
+      <mat-option *ngFor="let serial of meters" [value]="serial">{{ serial }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <p>Kiválasztott mérőóra: {{ selectedValue }}</p>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Mérőóra állása</mat-label>
+    <input matInput type="number" [(ngModel)]="meroallas" name="meroallas" required>
+    <span matTextSuffix>&nbsp; kWh</span>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button [disabled]="meters.length === 0">Rögzítés</button>
+</form>
+
+<!-- Ha isChecked = true, akkor az új mérőóra hozzáadása form látszik -->
+<form *ngIf="isChecked" class="bediktBox" id="ujMeroForm" (ngSubmit)="addMero()">
+  <mat-form-field appearance="outline">
+    <mat-label>Új mérőóra hozzáadása</mat-label>
+    <input matInput [(ngModel)]="ujMeroValue" name="ujMeroValue" type="text" placeholder="ABCD123" required>
+  </mat-form-field>
+  <button type="submit" mat-raised-button>Hozzáadás</button>
+</form>
 
 
 </div>

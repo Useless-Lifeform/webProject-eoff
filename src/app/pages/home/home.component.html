@@ -2,6 +2,13 @@
 <h1>Derüs napot!</h1>
 <div>
   <p>Az oldalon lehetősége van bediktálni a villanyóra állását és megtekinteni korábbi diktálásait.</p>
-  <p>Ehhez szükséges belépnie!</p>
-  <button (click)="sendEmit()" >Bejelentkezés</button>
+  @if (!isLoggedIn) { <!--Nincs belépve-->
+    <p>Ehhez szükséges belépnie!</p>
+    <button mat-flat-button [routerLink] = "['/login']">Bejelentkezés</button>
+  }
+  @else{
+    <p>munkára</p>
+    <button mat-flat-button [routerLink] = "['/bedikt']">Bediktálás</button>
+  }
+  <!-- <button (click)="sendEmit()" >Bejelentkezés</button> -->
 </div>
